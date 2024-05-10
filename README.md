@@ -18,7 +18,7 @@
 <h3>Initialize the Phishing Campaign</h3>
 It's best to do this lab in an isolated environment. I have my Windows 10 VM and Kali Linux VM powered on. Both machines are in the same subnet, which is essential for this demonstration to execute properly. Let’s pull up to the Windows 10 VM. Make sure your Windows Firewall is turned off so there’s no interference for the social engineering attack.
 <br/>
-<img src="https://i.imgur.com/fQV0cA1.png" height="80%" width="80%" alt="Windows Firewall Turned Off"/>
+<img src="https://i.imgur.com/fQV0cA1.png" height="40%" width="40%" alt="Windows Firewall Turned Off"/>
 <br />
 Next, we'll boot up our hMailServer that was created in another <a href="https://github.com/JE99s/Create_Your_Local_EmailServer" target="_blank">demonstration</a>.
 <br/>
@@ -26,7 +26,7 @@ Next, we'll boot up our hMailServer that was created in another <a href="https:/
 <br />
 Next, we’ll start up our Gophish Server.
 <br/>
-<img src="https://i.imgur.com/s44TwHe.png" height="60%" width="60%" alt="Mouse on gophish.exe"/>
+<img src="https://i.imgur.com/s44TwHe.png" height="40%" width="40%" alt="Mouse on gophish.exe"/>
 <br />
 The configured Gophish executable is locally assigned. The admin dashboard is where we will be doing our work. So, on any browser. We’ll type the following URL to navigate to the Gophish admin login page.
 <br/>
@@ -34,7 +34,7 @@ The configured Gophish executable is locally assigned. The admin dashboard is wh
 <br />
 At the login page, we’ll submit our credentials to log in to the admin dashboard.
 <br/>
-<img src="https://i.imgur.com/ohFw8Hr.png" height="55%" width="55%" alt="Gophish Admin sign-in page"/>
+<img src="https://i.imgur.com/ohFw8Hr.png" height="35%" width="35%" alt="Gophish Admin sign-in page"/>
 <br />
 
 <h3>Users & Groups</h3>
@@ -43,14 +43,15 @@ On the left-side panel of the admin dashboard, we'll click the <b>Users & Groups
 <img src="https://i.imgur.com/d2uXBjp.png" height="80%" width="80%" alt="New Group Fields"/>
 <br />
 We'll choose anything for the group name, and here we'll add some recipients. These valid email addresses created locally with help from our <a href="https://github.com/JE99s/Create_Your_Local_EmailServer" target="_blank">hMailServer</a>. Once all recipients are added, click <b>Save Changes</b>.
+
 <br/>
-<img src="https://i.imgur.com/6iAX7e2.png" height="80%" width="80%" alt="Save Changes to Group"/>
+<img src="https://i.imgur.com/6iAX7e2.png" height="75%" width="75%" alt="Save Changes to Group"/>
 <br />
 
 <h3>Sending Profiles</h3>
 To send emails, Gophish requires us to configure some SMTP relay details called "Sending Profiles". On the left-hand sidebar of the dashboard, click <b>Sending Profiles</b>. During this configuration, it's important that the "SMTP From" address is a valid email address. We'll fill in the following fields as such and save our profile.
 <br/>
-<img src="https://i.imgur.com/zwMyhNU.png" height="65%" width="65%" alt="Sending Profile"/>
+<img src="https://i.imgur.com/zwMyhNU.png" height="45%" width="45%" alt="Sending Profile"/>
 <br />
 Ok, so we now have our Gophish server up and running. We’ve made a group of target recipients and we’ve established a Sending Profile that will launch the phishing campaign. Before we proceed, let’s go to our Kali Linux VM to setup the Credential Harvester tool. 
 <br/>
@@ -68,18 +69,18 @@ It looks like there is connectivity between the two machines. Now, the credentia
 <br />
 For your first time, you might be met with somewhat of a terms of service (TOS) to agree that this tool will not be used for any malicious or unethical reasons. You’re not going to go out in the real-world and utilize this to attempt to steal someone’s credentials. This is all designed for demonstrative purposes only. Agree and hit <b>Enter</b> and you should be met with the following menu:
 <br />
-<img src="https://i.imgur.com/v6VNBVZ.png" height="75%" width="75%" alt="SET MENU Welcome-page"/>
+<img src="https://i.imgur.com/v6VNBVZ.png" height="55%" width="55%" alt="SET MENU Welcome-page"/>
 Now, we are going to be running a social engineering attack, so the first thing we are going to select is option <b>1</b> for <b>Social-Engineering Attacks</b>. Hit <b>Enter</b>. Now, we are met with another menu to choose a specific attack vector. Notice that option <b>2</b> says <b>Website Attack Vectors</b>. Remember, we will be generating a fake website. So, we'll choose option <b>2</b>. Hit <b>Enter</b>.
 <br />
-<img src="https://i.imgur.com/gU2wQyz.png" height="60%" width="60%" alt="Website Attack Vectors"/>
+<img src="https://i.imgur.com/gU2wQyz.png" height="55%" width="55%" alt="Website Attack Vectors"/>
 <br />
 Another menu pops up! Here are some attacks that SET has within a web browser. There is a Metasploit attack, a Tabnabbing one, and a Web Jacking one. We're going to choose option <b>3</b>, <b>Credential Harvester Attack Method</b>. Type <b>3</b> and then hit <b>Enter</b>.
 <br />
-<img src="https://i.imgur.com/SMHprj8.png" height="60%" width="60%" alt="Credential Harvester"/>
+<img src="https://i.imgur.com/SMHprj8.png" height="55%" width="55%" alt="Credential Harvester"/>
 <br />
 We could clone websites. We can even create our own malicious website. For a quick demonstration, we'll choose option <b>1</b>, where there are templates already provided.
 <br />
-<img src="https://i.imgur.com/z6Rs54N.png" height="60%" width="60%" alt="Web Templates"/>
+<img src="https://i.imgur.com/z6Rs54N.png" height="65%" width="65%" alt="Web Templates"/>
 <br />
 Here the tool will be asking for an IP address to send these captured credentials back to. Since we are keeping this local, we'll keep the IP address that is already provided (highlighted in white), sending it to the Kali Linux machine. We'll make sure to keep the IP address recorded for when we start setting up our phishing campaign.
 <br />
@@ -90,17 +91,17 @@ Finally, we are going to create a fake Google login page. At the option menu, ty
 <img src="https://i.imgur.com/u8G7NQA.png" height="60%" width="60%" alt="Select Google Template"/>
 <br />
 <br />
-<img src="https://i.imgur.com/kvcqxJU.png" height="60%" width="60%" alt="google website cloned"/>
+<img src="https://i.imgur.com/kvcqxJU.png" height="80%" width="80%" alt="google website cloned"/>
 <br />
 <h3>Send Out Da Phishing Campaign</h3>
 <h4>Email Template</h4>
 Now that we have a malicious website. We'll jump back to the Gophish admin dashboard on the Windows 10 VM. On the left-hand sidebar, we'll click the <b>Email Templates</b> tab to create our malicious email. This is a critical part of the phishing campaign. This element has a lot to do with what the victim will see once they receive the phishing email. Let's get started by naming this new email template. Provide an Envelope sender, this can virtually be any email. I made up the email address inside <b>Employee Sender</b> field; just to make it look like it's coming from someone affiliated with Google. Since we are planning to send a malicious Google sign-in URL to the victim. Then, we'll proceed to finish up this email template by providing a subject for the email message and creating the content of the email. Notice that I'm on the HTML sub-tab when working on the contents of the email.
 <br />
-<img src="https://i.imgur.com/zrJMS29.png" height="60%" width="60%" alt="Email Template"/>
+<img src="https://i.imgur.com/zrJMS29.png" height="80%" width="80%" alt="Email Template"/>
 <br />
 Within the message, we'll embed the link containing the IP address of the Kali Linux VM, the address to where the captured credentials will be sent to. We want to ensure that the victim will open that malicious URL. The reason we use 'http' instead of 'https' is because the credential harvester (malicious URL) is running on port 80 (refers to HTTP). Once we finish the rest of the email message, click <b>Save Template</b>.
 <br />
-<img src="https://i.imgur.com/QBx7tjO.png" height="60%" width="60%" alt="href...and then save"/>
+<img src="https://i.imgur.com/QBx7tjO.png" height="80%" width="80%" alt="href...and then save"/>
 <br />
 
 <h4>Landing Pages</h4>
