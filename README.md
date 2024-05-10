@@ -56,7 +56,7 @@ Ok, so we now have our Gophish server up and running. We’ve made a group of ta
 <br/>
 
 <h3>Utilize SET Toolkit to Create Malicious Link</h3>
-Starting on our Kali Linux VM, let’s ensure connectivity with the Windows 10VM. 
+Starting on our Kali Linux VM, let’s ensure connectivity with the Windows 10 VM. 
 <br/>
 <img src="https://i.imgur.com/5tGoJx5.png" height="75%" width="75%" alt="Kali ping to Windows 10"/>
 <br />
@@ -98,14 +98,15 @@ Now that we have a malicious website. We'll jump back to the Gophish admin dashb
 <br />
 <img src="https://i.imgur.com/zrJMS29.png" height="60%" width="60%" alt="Email Template"/>
 <br />
-Within the message, we'll embed the link containing the IP address of the Kali Linux VM, the address to where the captured credentials will be sent to. We want to ensure that the victim will open that malicious URL. The reason we use 'http' instead of 'https' is because the credential harvester (malicious URL) is running on port 80 (refers to HTTP). Once we finish the rest of the email message, click <b>Save Email Template</b>.
+Within the message, we'll embed the link containing the IP address of the Kali Linux VM, the address to where the captured credentials will be sent to. We want to ensure that the victim will open that malicious URL. The reason we use 'http' instead of 'https' is because the credential harvester (malicious URL) is running on port 80 (refers to HTTP). Once we finish the rest of the email message, click <b>Save Template</b>.
 <br />
-<img src="" height="60%" width="60%" alt="href...and then save"/>
+<img src="https://i.imgur.com/QBx7tjO.png" height="60%" width="60%" alt="href...and then save"/>
 <br />
+
 <h4>Landing Pages</h4>
-The <b>Landing Pages</b> tab will help the phishing campaign redirect users to another website after they submit their credentials. Landing pages are the actual HTML pages that are returned to the users (victims) when they click the phishing links they receive. Hence, we can import the Google website to ensure that a victim is returned to the legitimate URL after submitting those credentials to the malicious one.
+The <b>Landing Pages</b> tab will help the phishing campaign redirect users to another website after they submit their credentials. Landing pages are the actual HTML pages that are returned to the users (victims) when they click the phishing links they receive. Hence, we can import the IP address of our Kali Linux VM to ensure that the victim is redirected to the malicious URL to submit their credentials.
 <br />
-<img src="" height="60%" width="60%" alt="Landing Page configuration"/>
+<img src="https://i.imgur.com/1H0gNUO.png" height="75%" width="75%" alt="Landing Page configuration"/>
 <br />
 Next, we'll navigate to the <b>Campaigns</b> tab and click the <b>New Campaign</b> button.
 <br />
