@@ -7,6 +7,7 @@
 - <b>Windows 10 Operating System</b>
 - <b>Kali Linux</b>
 - <b>Browser (e.g., Google Chrome and Firefox)</b>
+- <b>Gophish Phishing Framework</b>
 
 <h2>Environments Used</h2>
 
