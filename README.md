@@ -69,8 +69,94 @@ It looks like there is connectivity between the two machines. Now, the credentia
 For your first time, you might be met with somewhat of a terms of service (TOS) to agree that this tool will not be used for any malicious or unethical reasons. You’re not going to go out in the real-world and utilize this to attempt to steal someone’s credentials. This is all designed for demonstrative purposes only. Agree and hit <b>Enter</b> and you should be met with the following menu:
 <br />
 <img src="https://i.imgur.com/v6VNBVZ.png" height="75%" width="75%" alt="SET MENU Welcome-page"/>
-Now, we are going to be running a social engineering attack, so the first thing we are going to select is option <b>1</b> for <b>Social-Engineering Attacks</b>. Hit <b>Enter</b>.
+Now, we are going to be running a social engineering attack, so the first thing we are going to select is option <b>1</b> for <b>Social-Engineering Attacks</b>. Hit <b>Enter</b>. Now, we are met with another menu to choose a specific attack vector. Notice that option <b>2</b> says <b>Website Attack Vectors</b>. Remember, we will be generating a fake website. So, we'll choose option <b>2</b>. Hit <b>Enter</b>.
+<br />
+<img src="https://i.imgur.com/gU2wQyz.png" height="60%" width="60%" alt="Website Attack Vectors"/>
+<br />
+Another menu pops up! Here are some attacks that SET has within a web browser. There is a Metasploit attack, a Tabnabbing one, and a Web Jacking one. We're going to choose option <b>3</b>, <b>Credential Harvester Attack Method</b>. Type <b>3</b> and then hit <b>Enter</b>.
+<br />
+<img src="https://i.imgur.com/SMHprj8.png" height="60%" width="60%" alt="Credential Harvester"/>
+<br />
+We could clone websites. We can even create our own malicious website. For a quick demonstration, we'll choose option <b>1</b>, where there are templates already provided.
+<br />
+<img src="https://i.imgur.com/z6Rs54N.png" height="60%" width="60%" alt="Web Templates"/>
+<br />
+Here the tool will be asking for an IP address to send these captured credentials back to. Since we are keeping this local, we'll keep the IP address that is already provided (highlighted in white), sending it to the Kali Linux machine. We'll make sure to keep the IP address recorded for when we start setting up our phishing campaign.
+<br />
+<img src="https://i.imgur.com/JCpS1w2.png" height="60%" width="60%" alt="IP address for the POST"/>
+<br />
+Finally, we are going to create a fake Google login page. At the option menu, type in <b>2</b> and hit <b>Enter</b> to configure a fake Google login page.
+<br />
+<img src="https://i.imgur.com/u8G7NQA.png" height="60%" width="60%" alt="Select Google Template"/>
 <br />
 <br />
-<img src="https://i.imgur.com/v6VNBVZ.png" height="75%" width="75%" alt="SET MENU Welcome-page"/>
+<img src="https://i.imgur.com/kvcqxJU.png" height="60%" width="60%" alt="google website cloned"/>
+<br />
+<h3>Send Out Phishing Campaign</h3>
+<h4>Email Template</h4>
+Now that we have a malicious website. We'll jump back to the Gophish admin dashboard on the Windows 10 VM. On the left-hand sidebar, we'll click the <b>Email Templates</b> tab to create our malicious email. This is a critical part of the phishing campaign. This element has a lot to do with what the victim will see once they receive the phishing email. Let's get started by naming this new email template. Provide an Envelope sender, this can virtually be any email. I made up the email address inside <b>Employee Sender</b> field; just to make it look like it's coming from someone affiliated with Google. Since we are planning to send a malicious Google sign-in URL to the victim. Then, we'll proceed to finish up this email template by providing a subject for the email message and creating the content of the email. Notice that I'm on the HTML sub-tab when working on the contents of the email.
+<br />
+<img src="https://i.imgur.com/zrJMS29.png" height="60%" width="60%" alt="Email Template"/>
+<br />
+Within the message, we'll embed the link containing the IP address of the Kali Linux VM, the address to where the captured credentials will be sent to. We want to ensure that the victim will open that malicious URL. The reason we use 'http' instead of 'https' is because the credential harvester (malicious URL) is running on port 80 (refers to HTTP). Once we finish the rest of the email message, click <b>Save Email Template</b>.
+<br />
+<img src="" height="60%" width="60%" alt="href...and then save"/>
+<br />
+<h4>Landing Pages</h4>
+The <b>Landing Pages</b> tab will help the phishing campaign redirect users to another website after they submit their credentials. Landing pages are the actual HTML pages that are returned to the users (victims) when they click the phishing links they receive. Hence, we can import the Google website to ensure that a victim is returned to the legitimate URL after submitting those credentials to the malicious one.
+<br />
+<img src="" height="60%" width="60%" alt="Landing Page configuration"/>
+<br />
+Next, we'll navigate to the <b>Campaigns</b> tab and click the <b>New Campaign</b> button.
+<br />
+<img src="https://i.imgur.com/XTJ7zAC.png" height="70%" width="70%" alt="New Campaign"/>
+<br />
+We'll provide a name for this campaign. Any name you come up with is fine. Then, we'll select an email template. Here, I will select the one we worked on earlier.
+<br />
+<img src="https://i.imgur.com/qOt7SJr.png" height="45%" width="45%" alt="Select Email Template"/>
+<br />
+Then we'll select the Landing Page we reviewed earlier.
+<br />
+<img src="https://i.imgur.com/NhUr8HW.png" height="45%" width="45%" alt="Select Landing Page"/>
+<br />
+Then the URL...
+<br />
+<img src="https://i.imgur.com/I2dXAVZ.png" height="25%" width="25%" alt="Either IP is fine"/>
+<br />
+Honestly, you can put your Kali's IP address or your local IP address for the URL, the credential harvester should still function the same with either or.
+<br />
+Then, we'll select our Sending Profile. Once all configurations are selected, click <b>Launch Campaign</b> to send it off.
+<br />
+<img src="https://i.imgur.com/XG6cHhz.png" height="75%" width="75%" alt="Launch campaign"/>
+<br />
+<img src="https://i.imgur.com/JRAgKZ2.png" height="40%" width="40%" alt="Campaign Scheduled!"/>
+<br />
+<h3>Harvest Credentials On Attack Machine</h3>
+Now, we'll go check the sample victim emails we launched the campaign toward and it looks like the phishing emails were received!
+<br />
+<img src="https://i.imgur.com/AGCzKU3.png" height="60%" width="60%" alt="email inbox"/>
+<br />
+<img src="https://i.imgur.com/d6szVNU.png" height="70%" width="70%" alt="Contents of email"/>
+<br />
+Above, we can see the email template we created earlier with Gophish.
+**A quick note**
+In the real world, it's vital to examine every detail in suspicious emails. Big indicators of phishing emails are the grammatic errors. Despite the shady sense of authority from the message, the misspelling and improper email format is usually a dead giveaway, telling most that this email is a phishing attempt. 
+<br />
+<img src="https://i.imgur.com/FJpR1cQ.png" height="75%" width="75%" alt="Phishing indicators"/>
+<br />
+We’ll proceed by clicking the hyperlink in the email message, and we’re immediately redirected to a google page. But the URL looks different. It has the IP address of my Kali Linux VM inside the URL tab, which would not normally look right, but this is a good indication that the victim has been successfully redirected to credential harvester URL. I go back to my Kali Linux VM, and the feed shows the activity of the Windows 10 VM connecting to the malicious URL.
+<br />
+<img src="https://i.imgur.com/HtoxulG.png" height="75%" width="75%" alt="Credential Harvester feed"/>
+<br />
+So, on the Windows 10 VM, let’s try logging in as the victim who fell for the phishing email. To check our Google account, the victim will input some credentials to log in.
+<br />
+<img src="https://i.imgur.com/fUQEbez.png" height="80%" width="80%" alt="Sign in to Google..."/>
+<br />
+Once we click <b>Sign in</b>, we'll navigate back to our Kali machine, we should see what the SET credential harvester tool has captured in real-time, and it turns out that we have captured something!
+<br />
+<img src="https://i.imgur.com/3K3FwM6.png" height="85%" width="85%" alt="Captured Credentials"/>
+<br />
+Success! The feed shows the exact same credentials that we just put in as the victim on the Windows 10 VM. We have successfully captured a victim’s credentials through first creating a phishing email and then utilizing the Social Engineering Toolkit as the payload to capture the credentials that the victim would provide. One cool feature of the Credential Harvesting tool is that once a victims’ credentials are captured, the malicious site refreshes and is immediately replaced with the actual site it cloned. Hence, the victim would be directed to the actual Google website after submitting their credentials.
+<br />
+<img src="https://i.imgur.com/8hG24Zb.png" height="80%" width="80%" alt="Back to regular Google"/>
 <br />
