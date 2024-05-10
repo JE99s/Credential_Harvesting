@@ -13,9 +13,9 @@
 - <b>VirtualBox Hypervisor </b>
 
 <h2>Lab Walk-through:</h2>
-<p>This demonstration will hit two birds with one stone. We’ll set up a phishing campaign with the <a href="https://docs.getgophish.com/user-guide/what-is-gophish" target="_blank">Gophish</a> application where we’ll identify a victim user group, fabricate phishing emails, and launch a campaign that is configured all in one platform. Another element to this social engineering attack will be the credential harvesting tool that will clone a popular website and will act as the payload in our phishing campaign. </p>
+<p>This demonstration will hit two birds with one stone. We’ll set up a phishing campaign with the <a href="https://docs.getgophish.com/user-guide/what-is-gophish" target="_blank">Gophish</a> framework where we’ll identify a victim user group, fabricate phishing emails, and launch a campaign that is configured all in one platform. Another element to this social engineering attack will be the credential harvesting tool that will clone a popular website and will act as the payload in our phishing campaign. </p>
 <br />
-<h3>Initialize Phishing Campaign</h3>
+<h3>Initialize the Phishing Campaign</h3>
 It's best to do this lab in an isolated environment. I have my Windows 10 VM and Kali Linux VM powered on. Both machines are in the same subnet, which is essential for this demonstration to execute properly. Let’s pull up to the Windows 10 VM. Make sure your Windows Firewall is turned off so there’s no interference for the social engineering attack.
 <br/>
 <img src="https://i.imgur.com/fQV0cA1.png" height="80%" width="80%" alt="Windows Firewall Turned Off"/>
@@ -55,7 +55,7 @@ To send emails, Gophish requires us to configure some SMTP relay details called 
 Ok, so we now have our Gophish server up and running. We’ve made a group of target recipients and we’ve established a Sending Profile that will launch the phishing campaign. Before we proceed, let’s go to our Kali Linux VM to setup the Credential Harvester tool. 
 <br/>
 
-<h3>Utilize SET Toolkit to Create Malicious Link</h3>
+<h3>Utilize the SET Toolkit to Create Malicious Link</h3>
 Starting on our Kali Linux VM, let’s ensure connectivity with the Windows 10 VM. 
 <br/>
 <img src="https://i.imgur.com/5tGoJx5.png" height="75%" width="75%" alt="Kali ping to Windows 10"/>
@@ -92,7 +92,7 @@ Finally, we are going to create a fake Google login page. At the option menu, ty
 <br />
 <img src="https://i.imgur.com/kvcqxJU.png" height="60%" width="60%" alt="google website cloned"/>
 <br />
-<h3>Send Out Phishing Campaign</h3>
+<h3>Send Out Da Phishing Campaign</h3>
 <h4>Email Template</h4>
 Now that we have a malicious website. We'll jump back to the Gophish admin dashboard on the Windows 10 VM. On the left-hand sidebar, we'll click the <b>Email Templates</b> tab to create our malicious email. This is a critical part of the phishing campaign. This element has a lot to do with what the victim will see once they receive the phishing email. Let's get started by naming this new email template. Provide an Envelope sender, this can virtually be any email. I made up the email address inside <b>Employee Sender</b> field; just to make it look like it's coming from someone affiliated with Google. Since we are planning to send a malicious Google sign-in URL to the victim. Then, we'll proceed to finish up this email template by providing a subject for the email message and creating the content of the email. Notice that I'm on the HTML sub-tab when working on the contents of the email.
 <br />
